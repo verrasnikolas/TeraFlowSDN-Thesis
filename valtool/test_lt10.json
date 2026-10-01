@@ -1,0 +1,88 @@
+{
+  "devices": [
+    {
+      "device_id": {"device_uuid": {"uuid": "spine1"}},
+      "name": "spine1",
+      "device_type": "packet-router",
+      "device_drivers": ["DEVICEDRIVER_GNMI_OPENCONFIG"],
+      "device_operational_status": "DEVICEOPERATIONALSTATUS_ENABLED",
+      "device_endpoints": [
+        {
+          "endpoint_id": {
+            "device_id": {"device_uuid": {"uuid": "spine1"}},
+            "endpoint_uuid": {"uuid": "Ethernet15"}
+          }
+        },
+        {
+          "endpoint_id": {
+            "device_id": {"device_uuid": {"uuid": "spine1"}},
+            "endpoint_uuid": {"uuid": "Ethernet16"}
+          }
+        }
+      ]
+    },
+    {
+      "device_id": {"device_uuid": {"uuid": "leaf1"}},
+      "name": "leaf1",
+      "device_type": "packet-router",
+      "device_drivers": ["DEVICEDRIVER_GNMI_OPENCONFIG"],
+      "device_operational_status": "DEVICEOPERATIONALSTATUS_ENABLED",
+      "device_endpoints": [
+        {
+          "endpoint_id": {
+            "device_id": {"device_uuid": {"uuid": "leaf1"}},
+            "endpoint_uuid": {"uuid": "Ethernet25"}
+          }
+        },
+        {
+          "endpoint_id": {
+            "device_id": {"device_uuid": {"uuid": "leaf1"}},
+            "endpoint_uuid": {"uuid": "Ethernet26"}
+          }
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "link_id": {
+        "link_uuid": {"uuid": "capacity-paradox-link-1"}
+      },
+      "link_type": "LINKTYPE_COPPER",
+      "attributes": {
+        "total_capacity_gbps": 10.0,
+        "used_capacity_gbps": 100.0
+      },
+      "link_endpoint_ids": [
+        {
+          "device_id": {"device_uuid": {"uuid": "spine1"}},
+          "endpoint_uuid": {"uuid": "Ethernet15"}
+        },
+        {
+          "device_id": {"device_uuid": {"uuid": "leaf1"}},
+          "endpoint_uuid": {"uuid": "Ethernet25"}
+        }
+      ]
+    },
+    {
+      "link_id": {
+        "link_uuid": {"uuid": "negative-capacity-link-2"}
+      },
+      "link_type": "LINKTYPE_COPPER",
+      "attributes": {
+        "total_capacity_gbps": -10.0,
+        "used_capacity_gbps": 0.0
+      },
+      "link_endpoint_ids": [
+        {
+          "device_id": {"device_uuid": {"uuid": "spine1"}},
+          "endpoint_uuid": {"uuid": "Ethernet16"}
+        },
+        {
+          "device_id": {"device_uuid": {"uuid": "leaf1"}},
+          "endpoint_uuid": {"uuid": "Ethernet26"}
+        }
+      ]
+    }
+  ]
+}

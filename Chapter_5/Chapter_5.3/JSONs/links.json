@@ -1,0 +1,60 @@
+{
+    "links": [
+        {
+            "link_id": {"link_uuid": {"uuid": "spine1/Ethernet1==leaf1/Ethernet1"}},
+            "link_endpoint_ids": [
+                {"topology_id": {"context_id": {"context_uuid": {"uuid": "admin"}}, "topology_uuid": {"uuid": "admin"}}, "device_id": {"device_uuid": {"uuid": "spine1"}}, "endpoint_uuid": {"uuid": "Ethernet1"}},
+                {"topology_id": {"context_id": {"context_uuid": {"uuid": "admin"}}, "topology_uuid": {"uuid": "admin"}}, "device_id": {"device_uuid": {"uuid": "leaf1"}}, "endpoint_uuid": {"uuid": "Ethernet1"}}
+            ]
+        },
+        {
+            "link_id": {"link_uuid": {"uuid": "leaf1/Ethernet1==spine1/Ethernet1"}},
+            "link_endpoint_ids": [
+                {"topology_id": {"context_id": {"context_uuid": {"uuid": "admin"}}, "topology_uuid": {"uuid": "admin"}}, "device_id": {"device_uuid": {"uuid": "leaf1"}}, "endpoint_uuid": {"uuid": "Ethernet1"}},
+                {"topology_id": {"context_id": {"context_uuid": {"uuid": "admin"}}, "topology_uuid": {"uuid": "admin"}}, "device_id": {"device_uuid": {"uuid": "spine1"}}, "endpoint_uuid": {"uuid": "Ethernet1"}}
+            ]
+        },
+        {
+            "link_id": {"link_uuid": {"uuid": "spine1/Ethernet2==leaf2/Ethernet1"}},
+            "link_endpoint_ids": [
+                {"topology_id": {"context_id": {"context_uuid": {"uuid": "admin"}}, "topology_uuid": {"uuid": "admin"}}, "device_id": {"device_uuid": {"uuid": "spine1"}}, "endpoint_uuid": {"uuid": "Ethernet2"}},
+                {"topology_id": {"context_id": {"context_uuid": {"uuid": "admin"}}, "topology_uuid": {"uuid": "admin"}}, "device_id": {"device_uuid": {"uuid": "leaf2"}}, "endpoint_uuid": {"uuid": "Ethernet1"}}
+            ]
+        },
+        {
+            "link_id": {"link_uuid": {"uuid": "leaf2/Ethernet1==spine1/Ethernet2"}},
+            "link_endpoint_ids": [
+                {"topology_id": {"context_id": {"context_uuid": {"uuid": "admin"}}, "topology_uuid": {"uuid": "admin"}}, "device_id": {"device_uuid": {"uuid": "leaf2"}}, "endpoint_uuid": {"uuid": "Ethernet1"}},
+                {"topology_id": {"context_id": {"context_uuid": {"uuid": "admin"}}, "topology_uuid": {"uuid": "admin"}}, "device_id": {"device_uuid": {"uuid": "spine1"}}, "endpoint_uuid": {"uuid": "Ethernet2"}}
+            ]
+        },
+        {
+            "link_id": {"link_uuid": {"uuid": "leaf1/Ethernet2==client1/eth1"}},
+            "link_endpoint_ids": [
+                {"topology_id": {"context_id": {"context_uuid": {"uuid": "admin"}}, "topology_uuid": {"uuid": "admin"}}, "device_id": {"device_uuid": {"uuid": "leaf1"}}, "endpoint_uuid": {"uuid": "Ethernet2"}},
+                {"topology_id": {"context_id": {"context_uuid": {"uuid": "admin"}}, "topology_uuid": {"uuid": "admin"}}, "device_id": {"device_uuid": {"uuid": "client1"}}, "endpoint_uuid": {"uuid": "eth1"}}
+            ]
+        },
+        {
+            "link_id": {"link_uuid": {"uuid": "client1/eth1==leaf1/Ethernet2"}},
+            "link_endpoint_ids": [
+                {"topology_id": {"context_id": {"context_uuid": {"uuid": "admin"}}, "topology_uuid": {"uuid": "admin"}}, "device_id": {"device_uuid": {"uuid": "client1"}}, "endpoint_uuid": {"uuid": "eth1"}},
+                {"topology_id": {"context_id": {"context_uuid": {"uuid": "admin"}}, "topology_uuid": {"uuid": "admin"}}, "device_id": {"device_uuid": {"uuid": "leaf1"}}, "endpoint_uuid": {"uuid": "Ethernet2"}}
+            ]
+        },
+        {
+            "link_id": {"link_uuid": {"uuid": "leaf2/Ethernet2==client2/eth1"}},
+            "link_endpoint_ids": [
+                {"topology_id": {"context_id": {"context_uuid": {"uuid": "admin"}}, "topology_uuid": {"uuid": "admin"}}, "device_id": {"device_uuid": {"uuid": "leaf2"}}, "endpoint_uuid": {"uuid": "Ethernet2"}},
+                {"topology_id": {"context_id": {"context_uuid": {"uuid": "admin"}}, "topology_uuid": {"uuid": "admin"}}, "device_id": {"device_uuid": {"uuid": "client2"}}, "endpoint_uuid": {"uuid": "eth1"}}
+            ]
+        },
+        {
+            "link_id": {"link_uuid": {"uuid": "client2/eth1==leaf2/Ethernet2"}},
+            "link_endpoint_ids": [
+                {"topology_id": {"context_id": {"context_uuid": {"uuid": "admin"}}, "topology_uuid": {"uuid": "admin"}}, "device_id": {"device_uuid": {"uuid": "client2"}}, "endpoint_uuid": {"uuid": "eth1"}},
+                {"topology_id": {"context_id": {"context_uuid": {"uuid": "admin"}}, "topology_uuid": {"uuid": "admin"}}, "device_id": {"device_uuid": {"uuid": "leaf2"}}, "endpoint_uuid": {"uuid": "Ethernet2"}}
+            ]
+        }
+    ]
+}

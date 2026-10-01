@@ -1,0 +1,57 @@
+{
+  "services": [
+    {
+      "service_id": {
+        "context_id": {
+          "context_uuid": {
+            "uuid": "admin"
+          }
+        },
+        "service_uuid": {
+          "uuid": "clos-l2vpn-vni10010"
+        }
+      },
+      "service_type": "SERVICETYPE_L2NM",
+      "service_status": {
+        "service_status": "SERVICESTATUS_PLANNED"
+      },
+      "service_endpoint_ids": [
+        {
+          "device_id": {
+            "device_uuid": {
+              "uuid": "50c36ec0-09ba-546a-b18f-27f9776ce876"
+            }
+          },
+          "endpoint_uuid": {
+            "uuid": "Ethernet2"
+          }
+        },
+        {
+          "device_id": {
+            "device_uuid": {
+              "uuid": "f2e64778-b362-5a2b-9cad-68a3bce4a687"
+            }
+          },
+          "endpoint_uuid": {
+            "uuid": "Ethernet2"
+          }
+        }
+      ],
+      "service_config": {
+        "config_rules": [
+          {
+            "action": "CONFIGACTION_SET",
+            "custom": {
+              "resource_key": "/settings",
+              "resource_value": {
+                "vlan_id": 10,
+                "vni": 10010,
+                "mtu": 1500
+              }
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,0 +1,345 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "TFS Universal Topology Descriptor Schema v5",
+  "type": "object",
+  "properties": {
+    "contexts": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "context_id": {
+            "type": "object",
+            "properties": {
+              "context_uuid": { "type": "object", "properties": { "uuid": { "type": "string", "minLength": 1 } }, "required": ["uuid"], "additionalProperties": false }
+            },
+            "required": ["context_uuid"],
+            "additionalProperties": false
+          },
+          "name": { "type": "string" }
+        },
+        "required": ["context_id"],
+        "additionalProperties": false
+      }
+    },
+    "topologies": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "topology_id": {
+            "type": "object",
+            "properties": {
+              "context_id": {
+                "type": "object",
+                "properties": {
+                  "context_uuid": { "type": "object", "properties": { "uuid": { "type": "string", "minLength": 1 } }, "required": ["uuid"], "additionalProperties": false }
+                },
+                "required": ["context_uuid"],
+                "additionalProperties": false
+              },
+              "topology_uuid": { "type": "object", "properties": { "uuid": { "type": "string", "minLength": 1 } }, "required": ["uuid"], "additionalProperties": false }
+            },
+            "required": ["context_id", "topology_uuid"],
+            "additionalProperties": false
+          },
+          "device_ids": {
+            "type": "array"
+          },
+          "link_ids": {
+            "type": "array"
+          }
+        },
+        "required": ["topology_id"],
+        "additionalProperties": false
+      }
+    },
+    "topology_id": {
+      "type": "object",
+      "properties": {
+        "context_id": {
+          "type": "object",
+          "properties": {
+            "context_uuid": { "type": "object", "properties": { "uuid": { "type": "string", "minLength": 1 } }, "required": ["uuid"], "additionalProperties": false }
+          },
+          "required": ["context_uuid"],
+          "additionalProperties": false
+        },
+        "topology_uuid": { "type": "object", "properties": { "uuid": { "type": "string", "minLength": 1 } }, "required": ["uuid"], "additionalProperties": false }
+      },
+      "required": ["context_id", "topology_uuid"],
+      "additionalProperties": false
+    },
+    "name": { "type": "string" },
+    "device_ids": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "device_uuid": { "type": "object", "properties": { "uuid": { "type": "string", "minLength": 1 } }, "required": ["uuid"], "additionalProperties": false }
+        },
+        "required": ["device_uuid"],
+        "additionalProperties": false
+      }
+    },
+    "link_ids": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "link_uuid": { "type": "object", "properties": { "uuid": { "type": "string", "minLength": 1 } }, "required": ["uuid"], "additionalProperties": false }
+        },
+        "required": ["link_uuid"],
+        "additionalProperties": false
+      }
+    },
+    "optical_link_ids": { "type": "array" },
+    "devices": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "device_id": {
+            "type": "object",
+            "properties": {
+              "device_uuid": { "type": "object", "properties": { "uuid": { "type": "string", "minLength": 1 } }, "required": ["uuid"], "additionalProperties": false }
+            },
+            "required": ["device_uuid"],
+            "additionalProperties": false
+          },
+          "name": { "type": "string" },
+          "device_type": { "type": "string" },
+          "device_operational_status": {
+            "anyOf": [
+              { "type": "string", "enum": ["DEVICEOPERATIONALSTATUS_UNDEFINED", "DEVICEOPERATIONALSTATUS_DISABLED", "DEVICEOPERATIONALSTATUS_ENABLED"] },
+              { "type": "integer" }
+            ]
+          },
+          "device_drivers": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "anyOf": [
+                {
+                  "type": "string",
+                  "enum": [
+                    "DEVICEDRIVER_UNDEFINED", "DEVICEDRIVER_OPENCONFIG", "DEVICEDRIVER_TRANSPORT_API", "DEVICEDRIVER_P4",
+                    "DEVICEDRIVER_IETF_NETWORK_TOPOLOGY", "DEVICEDRIVER_ONF_TR_532", "DEVICEDRIVER_XR", "DEVICEDRIVER_IETF_L2VPN",
+                    "DEVICEDRIVER_GNMI_OPENCONFIG", "DEVICEDRIVER_OPTICAL_TFS", "DEVICEDRIVER_IETF_ACTN", "DEVICEDRIVER_OC",
+                    "DEVICEDRIVER_QKD", "DEVICEDRIVER_IETF_L3VPN", "DEVICEDRIVER_IETF_SLICE", "DEVICEDRIVER_NCE",
+                    "DEVICEDRIVER_SMARTNIC", "DEVICEDRIVER_MORPHEUS", "DEVICEDRIVER_RYU", "DEVICEDRIVER_GNMI_NOKIA_SRLINUX",
+                    "DEVICEDRIVER_OPENROADM", "DEVICEDRIVER_RESTCONF_OPENCONFIG"
+                  ]
+                },
+                {
+                  "type": "integer",
+                  "minimum": 0,
+                  "maximum": 25
+                }
+              ]
+            }
+          },
+          "device_config": {
+            "type": "object",
+            "properties": {
+              "config_rules": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "properties": {
+                    "action": {
+                      "anyOf": [
+                        { "type": "string", "enum": ["CONFIGACTION_UNDEFINED", "CONFIGACTION_SET", "CONFIGACTION_DELETE"] },
+                        { "type": "integer" }
+                      ]
+                    },
+                    "custom": {
+                      "type": "object",
+                      "properties": {
+                        "resource_key": { "type": "string" },
+                        "resource_value": {}
+                      },
+                      "required": ["resource_key", "resource_value"],
+                      "additionalProperties": false
+                    }
+                  },
+                  "required": ["action"],
+                  "additionalProperties": false
+                }
+              }
+            },
+            "additionalProperties": false
+          },
+          "components": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "component_uuid": { "type": "object", "properties": { "uuid": { "type": "string", "minLength": 1 } }, "required": ["uuid"], "additionalProperties": false },
+                "name": { "type": "string" },
+                "type": { "type": "string" },
+                "attributes": { "type": "object", "additionalProperties": { "type": "string" } },
+                "parent": { "type": "string" }
+              },
+              "additionalProperties": false
+            }
+          },
+          "controller_id": {
+            "type": "object",
+            "properties": {
+              "device_uuid": { "type": "object", "properties": { "uuid": { "type": "string", "minLength": 1 } }, "required": ["uuid"], "additionalProperties": false }
+            },
+            "additionalProperties": false
+          },
+          "device_endpoints": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "endpoint_id": {
+                  "type": "object",
+                  "properties": {
+                    "topology_id": {
+                      "type": "object",
+                      "properties": {
+                        "context_id": {
+                          "type": "object",
+                          "properties": { "context_uuid": { "type": "object", "properties": { "uuid": { "type": "string", "minLength": 1 } }, "required": ["uuid"], "additionalProperties": false } },
+                          "required": ["context_uuid"],
+                          "additionalProperties": false
+                        },
+                        "topology_uuid": { "type": "object", "properties": { "uuid": { "type": "string", "minLength": 1 } }, "required": ["uuid"], "additionalProperties": false }
+                      },
+                      "required": ["context_id", "topology_uuid"],
+                      "additionalProperties": false
+                    },
+                    "device_id": {
+                      "type": "object",
+                      "properties": {
+                        "device_uuid": { "type": "object", "properties": { "uuid": { "type": "string", "minLength": 1 } }, "required": ["uuid"], "additionalProperties": false }
+                      },
+                      "required": ["device_uuid"],
+                      "additionalProperties": false
+                    },
+                    "endpoint_uuid": { "type": "object", "properties": { "uuid": { "type": "string", "minLength": 1 } }, "required": ["uuid"], "additionalProperties": false }
+                  },
+                  "required": ["endpoint_uuid"],
+                  "additionalProperties": false
+                },
+                "name": { "type": "string" },
+                "endpoint_type": { "type": "string" },
+                "kpi_sample_types": {
+                  "type": "array",
+                  "items": { "type": "string" }
+                },
+                "endpoint_location": {
+                  "type": "object",
+                  "properties": {
+                    "region": { "type": "string" },
+                    "gps_position": {
+                      "type": "object",
+                      "properties": {
+                        "latitude": { "type": "number" },
+                        "longitude": { "type": "number" }
+                      },
+                      "additionalProperties": false
+                    },
+                    "interface": { "type": "string" },
+                    "circuit_pack": { "type": "string" }
+                  },
+                  "additionalProperties": false
+                },
+                "capabilities": {
+                  "type": "object",
+                  "additionalProperties": true
+                }
+              },
+              "required": ["endpoint_id"],
+              "additionalProperties": false
+            }
+          }
+        },
+        "required": ["device_id"],
+        "additionalProperties": false
+      }
+    },
+    "links": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "link_id": {
+            "type": "object",
+            "properties": {
+              "link_uuid": { "type": "object", "properties": { "uuid": { "type": "string", "minLength": 1 } }, "required": ["uuid"], "additionalProperties": false }
+            },
+            "required": ["link_uuid"],
+            "additionalProperties": false
+          },
+          "name": { "type": "string" },
+          "link_type": {
+            "anyOf": [
+              {
+                "type": "string",
+                "enum": [
+                  "LINKTYPE_UNKNOWN", "LINKTYPE_COPPER", "LINKTYPE_FIBER",
+                  "LINKTYPE_RADIO", "LINKTYPE_VIRTUAL", "LINKTYPE_MANAGEMENT", "LINKTYPE_REMOTE"
+                ]
+              },
+              { "type": "integer" }
+            ]
+          },
+          "link_endpoint_ids": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "topology_id": {
+                  "type": "object",
+                  "properties": {
+                    "context_id": {
+                      "type": "object",
+                      "properties": {
+                        "context_uuid": { "type": "object", "properties": { "uuid": { "type": "string", "minLength": 1 } }, "required": ["uuid"], "additionalProperties": false }
+                      },
+                      "required": ["context_uuid"],
+                      "additionalProperties": false
+                    },
+                    "topology_uuid": { "type": "object", "properties": { "uuid": { "type": "string", "minLength": 1 } }, "required": ["uuid"], "additionalProperties": false }
+                  },
+                  "required": ["context_id", "topology_uuid"],
+                  "additionalProperties": false
+                },
+                "device_id": {
+                  "type": "object",
+                  "properties": {
+                    "device_uuid": { "type": "object", "properties": { "uuid": { "type": "string", "minLength": 1 } }, "required": ["uuid"], "additionalProperties": false }
+                  },
+                  "required": ["device_uuid"],
+                  "additionalProperties": false
+                },
+                "endpoint_uuid": { "type": "object", "properties": { "uuid": { "type": "string", "minLength": 1 } }, "required": ["uuid"], "additionalProperties": false }
+              },
+              "required": ["device_id", "endpoint_uuid"],
+              "additionalProperties": false
+            },
+            "minItems": 2,
+            "maxItems": 2
+          },
+          "attributes": {
+            "type": "object",
+            "properties": {
+              "is_bidirectional": { "type": "boolean" },
+              "total_capacity_gbps": { "type": "number" },
+              "used_capacity_gbps": { "type": "number" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "required": ["link_id", "link_endpoint_ids"],
+        "additionalProperties": false
+      }
+    }
+  },
+  "additionalProperties": false
+}

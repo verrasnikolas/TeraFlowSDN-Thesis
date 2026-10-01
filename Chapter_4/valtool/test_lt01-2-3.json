@@ -1,0 +1,72 @@
+{
+  "contexts": [
+    {
+      "context_id": {
+        "context_uuid": {
+          "uuid": "admin"
+        }
+      }
+    }
+  ],
+  "topologies": [
+    {
+      "topology_id": {
+        "context_id": {
+          "context_uuid": {
+            "uuid": "ghost-context-999"
+          }
+        },
+        "topology_uuid": {
+          "uuid": "orphan-topology"
+        }
+      }
+    },
+    {
+      "topology_id": {
+        "context_id": {
+          "context_uuid": {
+            "uuid": "admin"
+          }
+        },
+        "topology_uuid": {
+          "uuid": "admin"
+        }
+      },
+      "device_ids": [
+        {
+          "device_uuid": {
+            "uuid": "spine1"
+          }
+        },
+        {
+          "device_uuid": {
+            "uuid": "ghost-device-88"
+          }
+        }
+      ],
+      "link_ids": [
+        {
+          "link_uuid": {
+            "uuid": "ghost-link-77"
+          }
+        }
+      ]
+    }
+  ],
+  "devices": [
+    {
+      "device_id": {
+        "device_uuid": {
+          "uuid": "spine1"
+        }
+      },
+      "name": "spine1",
+      "device_type": "packet-router",
+      "device_drivers": [
+        "DEVICEDRIVER_GNMI_OPENCONFIG"
+      ],
+      "device_operational_status": "DEVICEOPERATIONALSTATUS_ENABLED",
+      "device_endpoints": []
+    }
+  ]
+}

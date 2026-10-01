@@ -1,0 +1,86 @@
+{
+  "devices": [
+    {
+      "device_id": {"device_uuid": {"uuid": "spine1"}},
+      "name": "spine1",
+      "device_type": "packet-router",
+      "device_drivers": ["DEVICEDRIVER_GNMI_OPENCONFIG"],
+      "device_operational_status": "DEVICEOPERATIONALSTATUS_ENABLED",
+      "device_endpoints": [],
+      "device_config": {
+        "config_rules": [
+          {
+            "action": "CONFIGACTION_SET",
+            "custom": {
+              "resource_key": "_connect/address",
+              "resource_value": "172.30.30.11"
+            }
+          },
+          {
+            "action": "CONFIGACTION_SET",
+            "custom": {
+              "resource_key": "_connect/port",
+              "resource_value": "6030"
+            }
+          },
+          {
+            "action": "CONFIGACTION_SET",
+            "custom": {
+              "resource_key": "_connect/settings",
+              "resource_value": {"username": "admin", "password": "admin", "use_tls": false}
+            }
+          }
+        ]
+      }
+    },
+    {
+      "device_id": {"device_uuid": {"uuid": "leaf1"}},
+      "name": "leaf1",
+      "device_type": "packet-router",
+      "device_drivers": ["DEVICEDRIVER_GNMI_OPENCONFIG"],
+      "device_operational_status": "DEVICEOPERATIONALSTATUS_ENABLED",
+      "device_endpoints": [],
+      "device_config": {
+        "config_rules": [
+          {
+            "action": "CONFIGACTION_SET",
+            "custom": {
+              "resource_key": "_connect/address",
+              "resource_value": "192.168.1.1"
+            }
+          },
+          {
+            "action": "CONFIGACTION_SET",
+            "custom": {
+              "resource_key": "_connect/port",
+              "resource_value": "6030"
+            }
+          },
+          {
+            "action": "CONFIGACTION_SET",
+            "custom": {
+              "resource_key": "_connect/settings",
+              "resource_value": {"username": "admin", "password": "admin", "use_tls": false}
+            }
+          }
+        ]
+      }
+    }
+  ],
+  "links": [
+    {
+      "link_id": {"link_uuid": {"uuid": "mismatch-link-lt09"}},
+      "link_type": "LINKTYPE_COPPER",
+      "link_endpoint_ids": [
+        {
+          "device_id": {"device_uuid": {"uuid": "spine1"}},
+          "endpoint_uuid": {"uuid": "Ethernet1"}
+        },
+        {
+          "device_id": {"device_uuid": {"uuid": "leaf1"}},
+          "endpoint_uuid": {"uuid": "Ethernet1"}
+        }
+      ]
+    }
+  ]
+}

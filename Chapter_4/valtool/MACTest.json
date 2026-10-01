@@ -1,0 +1,80 @@
+{
+  "devices": [
+    {
+      "device_id": {"device_uuid": {"uuid": "fake-router-mac"}},
+      "name": "fake-router-mac",
+      "device_type": "packet-router",
+      "device_drivers": ["DEVICEDRIVER_GNMI_OPENCONFIG"],
+      "device_operational_status": "DEVICEOPERATIONALSTATUS_ENABLED",
+      "device_endpoints": [],
+      "device_config": {
+        "config_rules": [
+          {
+            "action": "CONFIGACTION_SET",
+            "custom": {
+              "resource_key": "/interface[Ethernet1]/ethernet/mac-address",
+              "resource_value": "aa:c1:ab:47:ee:2e"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "device_id": {"device_uuid": {"uuid": "fake-router-1"}},
+      "name": "fake-router-1",
+      "device_type": "packet-router",
+      "device_drivers": ["DEVICEDRIVER_GNMI_OPENCONFIG"],
+      "device_operational_status": "DEVICEOPERATIONALSTATUS_ENABLED",
+      "device_endpoints": [],
+      "device_config": {
+        "config_rules": [
+          {
+            "action": "CONFIGACTION_SET",
+            "custom": {
+              "resource_key": "mac_address",
+              "resource_value": "00:1A:2B:3C:4D:GG"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "device_id": {"device_uuid": {"uuid": "fake-router-2"}},
+      "name": "fake-router-2",
+      "device_type": "packet-router",
+      "device_drivers": ["DEVICEDRIVER_GNMI_OPENCONFIG"],
+      "device_operational_status": "DEVICEOPERATIONALSTATUS_ENABLED",
+      "device_endpoints": [],
+      "device_config": {
+        "config_rules": [
+          {
+            "action": "CONFIGACTION_SET",
+            "custom": {
+              "resource_key": "mac_address",
+              "resource_value": "00:1A:2B:3C:4D:01"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "device_id": {"device_uuid": {"uuid": "fake-router-3"}},
+      "name": "fake-router-3",
+      "device_type": "packet-router",
+      "device_drivers": ["DEVICEDRIVER_GNMI_OPENCONFIG"],
+      "device_operational_status": "DEVICEOPERATIONALSTATUS_ENABLED",
+      "device_endpoints": [],
+      "device_config": {
+        "config_rules": [
+          {
+            "action": "CONFIGACTION_SET",
+            "custom": {
+              "resource_key": "mac_address",
+              "resource_value": "00:1A:2B:3C:4D:01"
+            }
+          }
+        ]
+      }
+    }
+  ]
+}

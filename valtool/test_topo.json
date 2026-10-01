@@ -1,0 +1,121 @@
+{
+  "topology_id": {
+    "context_id": {"context_uuid": {"uuid": "admin"}},
+    "topology_uuid": {"uuid": "admin"}
+  },
+  "device_ids": [
+    {"device_uuid": {"uuid": "R1"}},
+    {"device_uuid": {"uuid": "R2"}}
+  ],
+  "devices": [
+    {
+      "device_id": {"device_uuid": {"uuid": "R1"}},
+      "device_type": "router",
+      "device_operational_status": "DEVICEOPERATIONALSTATUS_ENABLED",
+      "device_endpoints": [
+        {
+          "endpoint_id": {
+            "topology_id": {
+              "context_id": {"context_uuid": {"uuid": "admin"}},
+              "topology_uuid": {"uuid": "admin"}
+            },
+            "device_id": {"device_uuid": {"uuid": "R1"}},
+            "endpoint_uuid": {"uuid": "port-1"}
+          },
+          "endpoint_type": "copper"
+        }
+      ]
+    },
+    {
+      "device_id": {"device_uuid": {"uuid": "R2"}},
+      "device_type": "router",
+      "device_operational_status": "DEVICEOPERATIONALSTATUS_ENABLED",
+      "device_endpoints": [
+        {
+          "endpoint_id": {
+            "topology_id": {
+              "context_id": {"context_uuid": {"uuid": "admin"}},
+              "topology_uuid": {"uuid": "admin"}
+            },
+            "device_id": {"device_uuid": {"uuid": "R2"}},
+            "endpoint_uuid": {"uuid": "port-1"}
+          },
+          "endpoint_type": "copper"
+        }
+      ]
+    }
+  ],
+  "links": [
+    {
+      "link_id": {"link_uuid": {"uuid": "link-ghost-router"}},
+      "link_type": "LINKTYPE_FIBER",
+      "link_endpoint_ids": [
+        {
+          "topology_id": {
+            "context_id": {"context_uuid": {"uuid": "admin"}},
+            "topology_uuid": {"uuid": "admin"}
+          },
+          "device_id": {"device_uuid": {"uuid": "R1"}},
+          "endpoint_uuid": {"uuid": "port-1"}
+        },
+        {
+          "topology_id": {
+            "context_id": {"context_uuid": {"uuid": "admin"}},
+            "topology_uuid": {"uuid": "admin"}
+          },
+          "device_id": {"device_uuid": {"uuid": "GHOST-R3"}},
+          "endpoint_uuid": {"uuid": "port-1"}
+        }
+      ]
+    },
+    {
+      "link_id": {"link_uuid": {"uuid": "link-ghost-port"}},
+      "link_type": "LINKTYPE_COPPER",
+      "link_endpoint_ids": [
+        {
+          "topology_id": {
+            "context_id": {"context_uuid": {"uuid": "admin"}},
+            "topology_uuid": {"uuid": "admin"}
+          },
+          "device_id": {"device_uuid": {"uuid": "R1"}},
+          "endpoint_uuid": {"uuid": "port-1"}
+        },
+        {
+          "topology_id": {
+            "context_id": {"context_uuid": {"uuid": "admin"}},
+            "topology_uuid": {"uuid": "admin"}
+          },
+          "device_id": {"device_uuid": {"uuid": "R2"}},
+          "endpoint_uuid": {"uuid": "port-99"}
+        }
+      ]
+    },
+    {
+      "link_id": {"link_uuid": {"uuid": "link-capacity-paradox"}},
+      "link_type": "LINKTYPE_VIRTUAL",
+      "link_endpoint_ids": [
+        {
+          "topology_id": {
+            "context_id": {"context_uuid": {"uuid": "admin"}},
+            "topology_uuid": {"uuid": "admin"}
+          },
+          "device_id": {"device_uuid": {"uuid": "R1"}},
+          "endpoint_uuid": {"uuid": "port-1"}
+        },
+        {
+          "topology_id": {
+            "context_id": {"context_uuid": {"uuid": "admin"}},
+            "topology_uuid": {"uuid": "admin"}
+          },
+          "device_id": {"device_uuid": {"uuid": "R2"}},
+          "endpoint_uuid": {"uuid": "port-1"}
+        }
+      ],
+      "attributes": {
+        "is_bidirectional": true,
+        "total_capacity_gbps": 10,
+        "used_capacity_gbps": 50
+      }
+    }
+  ]
+}

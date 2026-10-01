@@ -1,0 +1,77 @@
+{
+  "contexts": [
+    { "context_id": {"context_uuid": {"uuid": "admin"}} }
+  ],
+  "topologies": [
+    {
+      "topology_id": {
+        "context_id": {"context_uuid": {"uuid": "admin"}},
+        "topology_uuid": {"uuid": "admin"}
+      },
+      "link_ids": [
+        {"link_uuid": {"uuid": "link-third-wheel"}},
+        {"link_uuid": {"uuid": "link-split-ends"}},
+        {"link_uuid": {"uuid": "link-parallel-universe"}}
+      ]
+    }
+  ],
+  "links": [
+    {
+      "link_id": {"link_uuid": {"uuid": "link-third-wheel"}},
+      "link_type": "LINKTYPE_COPPER",
+      "attributes": {
+        "total_capacity_gbps": 10.0
+      },
+      "link_endpoint_ids": [
+        {
+          "topology_id": {"context_id": {"context_uuid": {"uuid": "admin"}}, "topology_uuid": {"uuid": "admin"}},
+          "device_id": {"device_uuid": {"uuid": "spine1"}},
+          "endpoint_uuid": {"uuid": "Ethernet1"}
+        },
+        {
+          "topology_id": {"context_id": {"context_uuid": {"uuid": "admin"}}, "topology_uuid": {"uuid": "admin"}},
+          "device_id": {"device_uuid": {"uuid": "leaf2"}},
+          "endpoint_uuid": {"uuid": "Ethernet1"}
+        }
+      ]
+    },
+    {
+      "link_id": {"link_uuid": {"uuid": "link-split-ends"}},
+      "link_type": "LINKTYPE_COPPER",
+      "attributes": {
+        "total_capacity_gbps": 10.0
+      },
+      "link_endpoint_ids": [
+        {
+          "topology_id": {"context_id": {"context_uuid": {"uuid": "admin"}}, "topology_uuid": {"uuid": "admin"}},
+          "device_id": {"device_uuid": {"uuid": "spine1"}},
+          "endpoint_uuid": {"uuid": "Ethernet1"}
+        },
+        {
+          "topology_id": {"context_id": {"context_uuid": {"uuid": "admin"}}, "topology_uuid": {"uuid": "admin"}},
+          "device_id": {"device_uuid": {"uuid": "leaf1"}},
+          "endpoint_uuid": {"uuid": "Ethernet2"}
+        }
+      ]
+    },
+    {
+      "link_id": {"link_uuid": {"uuid": "link-parallel-universe"}},
+      "link_type": "LINKTYPE_COPPER",
+      "attributes": {
+        "total_capacity_gbps": 10.0
+      },
+      "link_endpoint_ids": [
+        {
+          "topology_id": {"context_id": {"context_uuid": {"uuid": "admin"}}, "topology_uuid": {"uuid": "admin"}},
+          "device_id": {"device_uuid": {"uuid": "spine1"}},
+          "endpoint_uuid": {"uuid": "Ethernet1"}
+        },
+        {
+          "topology_id": {"context_id": {"context_uuid": {"uuid": "admin"}}, "topology_uuid": {"uuid": "admin"}},
+          "device_id": {"device_uuid": {"uuid": "leaf1"}},
+          "endpoint_uuid": {"uuid": "Ethernet1"}
+        }
+      ]
+    }
+  ]
+}

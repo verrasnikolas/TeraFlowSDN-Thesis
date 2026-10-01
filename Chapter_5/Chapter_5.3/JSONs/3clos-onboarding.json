@@ -1,0 +1,147 @@
+{
+    "contexts": [
+        {"context_id": {"context_uuid": {"uuid": "clos3-fabric"}}, "name": "clos3-fabric"}
+    ],
+    "topologies": [
+        {
+            "topology_id": {
+                "context_id": {"context_uuid": {"uuid": "clos3-fabric"}},
+                "topology_uuid": {"uuid": "clos3-fabric-topo"}
+            },
+            "name": "clos3-fabric-topo"
+        }
+    ],
+    "devices": [
+        {
+            "device_id": {"device_uuid": {"uuid": "spine1"}},
+            "device_type": "packet-router",
+            "device_drivers": ["DEVICEDRIVER_GNMI_OPENCONFIG"],
+            "device_operational_status": 1,
+            "device_config": {"config_rules": [
+                {"action": 1, "custom": {"resource_key": "_connect/address", "resource_value": "172.30.30.10"}},
+                {"action": 1, "custom": {"resource_key": "_connect/port", "resource_value": "6030"}},
+                {"action": 1, "custom": {"resource_key": "_connect/settings", "resource_value": {"protocol": "gnmi", "username": "admin", "password": "admin", "use_tls": false}}}
+            ]},
+            "device_endpoints": [
+                {"endpoint_id": {"topology_id": {"context_id": {"context_uuid": {"uuid": "clos3-fabric"}}, "topology_uuid": {"uuid": "clos3-fabric-topo"}}, "device_id": {"device_uuid": {"uuid": "spine1"}}, "endpoint_uuid": {"uuid": "Ethernet1"}}, "endpoint_type": "port"},
+                {"endpoint_id": {"topology_id": {"context_id": {"context_uuid": {"uuid": "clos3-fabric"}}, "topology_uuid": {"uuid": "clos3-fabric-topo"}}, "device_id": {"device_uuid": {"uuid": "spine1"}}, "endpoint_uuid": {"uuid": "Ethernet2"}}, "endpoint_type": "port"}
+            ]
+        },
+        {
+            "device_id": {"device_uuid": {"uuid": "leaf1"}},
+            "device_type": "packet-router",
+            "device_drivers": ["DEVICEDRIVER_GNMI_OPENCONFIG"],
+            "device_operational_status": 1,
+            "device_config": {"config_rules": [
+                {"action": 1, "custom": {"resource_key": "_connect/address", "resource_value": "172.30.30.11"}},
+                {"action": 1, "custom": {"resource_key": "_connect/port", "resource_value": "6030"}},
+                {"action": 1, "custom": {"resource_key": "_connect/settings", "resource_value": {"protocol": "gnmi", "username": "admin", "password": "admin", "use_tls": false}}}
+            ]},
+            "device_endpoints": [
+                {"endpoint_id": {"topology_id": {"context_id": {"context_uuid": {"uuid": "clos3-fabric"}}, "topology_uuid": {"uuid": "clos3-fabric-topo"}}, "device_id": {"device_uuid": {"uuid": "leaf1"}}, "endpoint_uuid": {"uuid": "Ethernet1"}}, "endpoint_type": "port"},
+                {"endpoint_id": {"topology_id": {"context_id": {"context_uuid": {"uuid": "clos3-fabric"}}, "topology_uuid": {"uuid": "clos3-fabric-topo"}}, "device_id": {"device_uuid": {"uuid": "leaf1"}}, "endpoint_uuid": {"uuid": "Ethernet2"}}, "endpoint_type": "port"}
+            ]
+        },
+        {
+            "device_id": {"device_uuid": {"uuid": "leaf2"}},
+            "device_type": "packet-router",
+            "device_drivers": ["DEVICEDRIVER_GNMI_OPENCONFIG"],
+            "device_operational_status": 1,
+            "device_config": {"config_rules": [
+                {"action": 1, "custom": {"resource_key": "_connect/address", "resource_value": "172.30.30.12"}},
+                {"action": 1, "custom": {"resource_key": "_connect/port", "resource_value": "6030"}},
+                {"action": 1, "custom": {"resource_key": "_connect/settings", "resource_value": {"protocol": "gnmi", "username": "admin", "password": "admin", "use_tls": false}}}
+            ]},
+            "device_endpoints": [
+                {"endpoint_id": {"topology_id": {"context_id": {"context_uuid": {"uuid": "clos3-fabric"}}, "topology_uuid": {"uuid": "clos3-fabric-topo"}}, "device_id": {"device_uuid": {"uuid": "leaf2"}}, "endpoint_uuid": {"uuid": "Ethernet1"}}, "endpoint_type": "port"},
+                {"endpoint_id": {"topology_id": {"context_id": {"context_uuid": {"uuid": "clos3-fabric"}}, "topology_uuid": {"uuid": "clos3-fabric-topo"}}, "device_id": {"device_uuid": {"uuid": "leaf2"}}, "endpoint_uuid": {"uuid": "Ethernet2"}}, "endpoint_type": "port"}
+            ]
+        },
+        {
+            "device_id": {"device_uuid": {"uuid": "client1"}},
+            "device_type": "emu-datacenter",
+            "device_drivers": ["DEVICEDRIVER_UNDEFINED"],
+            "device_operational_status": 1,
+            "device_config": {"config_rules": [
+                {"action": 1, "custom": {"resource_key": "_connect/address", "resource_value": "127.0.0.1"}},
+                {"action": 1, "custom": {"resource_key": "_connect/port", "resource_value": "0"}},
+                {"action": 1, "custom": {"resource_key": "_connect/settings", "resource_value": {"endpoints": [{"uuid": "eth1", "type": "copper"}]}}}
+            ]},
+            "device_endpoints": [
+                {"endpoint_id": {"topology_id": {"context_id": {"context_uuid": {"uuid": "clos3-fabric"}}, "topology_uuid": {"uuid": "clos3-fabric-topo"}}, "device_id": {"device_uuid": {"uuid": "client1"}}, "endpoint_uuid": {"uuid": "eth1"}}, "endpoint_type": "port"}
+            ]
+        },
+        {
+            "device_id": {"device_uuid": {"uuid": "client2"}},
+            "device_type": "emu-datacenter",
+            "device_drivers": ["DEVICEDRIVER_UNDEFINED"],
+            "device_operational_status": 1,
+            "device_config": {"config_rules": [
+                {"action": 1, "custom": {"resource_key": "_connect/address", "resource_value": "127.0.0.1"}},
+                {"action": 1, "custom": {"resource_key": "_connect/port", "resource_value": "0"}},
+                {"action": 1, "custom": {"resource_key": "_connect/settings", "resource_value": {"endpoints": [{"uuid": "eth1", "type": "copper"}]}}}
+            ]},
+            "device_endpoints": [
+                {"endpoint_id": {"topology_id": {"context_id": {"context_uuid": {"uuid": "clos3-fabric"}}, "topology_uuid": {"uuid": "clos3-fabric-topo"}}, "device_id": {"device_uuid": {"uuid": "client2"}}, "endpoint_uuid": {"uuid": "eth1"}}, "endpoint_type": "port"}
+            ]
+        }
+    ],
+    "links": [
+        {
+            "link_id": {"link_uuid": {"uuid": "spine1/Ethernet1==leaf1/Ethernet1"}},
+            "link_endpoint_ids": [
+                {"topology_id": {"context_id": {"context_uuid": {"uuid": "clos3-fabric"}}, "topology_uuid": {"uuid": "clos3-fabric-topo"}}, "device_id": {"device_uuid": {"uuid": "spine1"}}, "endpoint_uuid": {"uuid": "Ethernet1"}},
+                {"topology_id": {"context_id": {"context_uuid": {"uuid": "clos3-fabric"}}, "topology_uuid": {"uuid": "clos3-fabric-topo"}}, "device_id": {"device_uuid": {"uuid": "leaf1"}}, "endpoint_uuid": {"uuid": "Ethernet1"}}
+            ]
+        },
+        {
+            "link_id": {"link_uuid": {"uuid": "leaf1/Ethernet1==spine1/Ethernet1"}},
+            "link_endpoint_ids": [
+                {"topology_id": {"context_id": {"context_uuid": {"uuid": "clos3-fabric"}}, "topology_uuid": {"uuid": "clos3-fabric-topo"}}, "device_id": {"device_uuid": {"uuid": "leaf1"}}, "endpoint_uuid": {"uuid": "Ethernet1"}},
+                {"topology_id": {"context_id": {"context_uuid": {"uuid": "clos3-fabric"}}, "topology_uuid": {"uuid": "clos3-fabric-topo"}}, "device_id": {"device_uuid": {"uuid": "spine1"}}, "endpoint_uuid": {"uuid": "Ethernet1"}}
+            ]
+        },
+        {
+            "link_id": {"link_uuid": {"uuid": "spine1/Ethernet2==leaf2/Ethernet1"}},
+            "link_endpoint_ids": [
+                {"topology_id": {"context_id": {"context_uuid": {"uuid": "clos3-fabric"}}, "topology_uuid": {"uuid": "clos3-fabric-topo"}}, "device_id": {"device_uuid": {"uuid": "spine1"}}, "endpoint_uuid": {"uuid": "Ethernet2"}},
+                {"topology_id": {"context_id": {"context_uuid": {"uuid": "clos3-fabric"}}, "topology_uuid": {"uuid": "clos3-fabric-topo"}}, "device_id": {"device_uuid": {"uuid": "leaf2"}}, "endpoint_uuid": {"uuid": "Ethernet1"}}
+            ]
+        },
+        {
+            "link_id": {"link_uuid": {"uuid": "leaf2/Ethernet1==spine1/Ethernet2"}},
+            "link_endpoint_ids": [
+                {"topology_id": {"context_id": {"context_uuid": {"uuid": "clos3-fabric"}}, "topology_uuid": {"uuid": "clos3-fabric-topo"}}, "device_id": {"device_uuid": {"uuid": "leaf2"}}, "endpoint_uuid": {"uuid": "Ethernet1"}},
+                {"topology_id": {"context_id": {"context_uuid": {"uuid": "clos3-fabric"}}, "topology_uuid": {"uuid": "clos3-fabric-topo"}}, "device_id": {"device_uuid": {"uuid": "spine1"}}, "endpoint_uuid": {"uuid": "Ethernet2"}}
+            ]
+        },
+        {
+            "link_id": {"link_uuid": {"uuid": "leaf1/Ethernet2==client1/eth1"}},
+            "link_endpoint_ids": [
+                {"topology_id": {"context_id": {"context_uuid": {"uuid": "clos3-fabric"}}, "topology_uuid": {"uuid": "clos3-fabric-topo"}}, "device_id": {"device_uuid": {"uuid": "leaf1"}}, "endpoint_uuid": {"uuid": "Ethernet2"}},
+                {"topology_id": {"context_id": {"context_uuid": {"uuid": "clos3-fabric"}}, "topology_uuid": {"uuid": "clos3-fabric-topo"}}, "device_id": {"device_uuid": {"uuid": "client1"}}, "endpoint_uuid": {"uuid": "eth1"}}
+            ]
+        },
+        {
+            "link_id": {"link_uuid": {"uuid": "client1/eth1==leaf1/Ethernet2"}},
+            "link_endpoint_ids": [
+                {"topology_id": {"context_id": {"context_uuid": {"uuid": "clos3-fabric"}}, "topology_uuid": {"uuid": "clos3-fabric-topo"}}, "device_id": {"device_uuid": {"uuid": "client1"}}, "endpoint_uuid": {"uuid": "eth1"}},
+                {"topology_id": {"context_id": {"context_uuid": {"uuid": "clos3-fabric"}}, "topology_uuid": {"uuid": "clos3-fabric-topo"}}, "device_id": {"device_uuid": {"uuid": "leaf1"}}, "endpoint_uuid": {"uuid": "Ethernet2"}}
+            ]
+        },
+        {
+            "link_id": {"link_uuid": {"uuid": "leaf2/Ethernet2==client2/eth1"}},
+            "link_endpoint_ids": [
+                {"topology_id": {"context_id": {"context_uuid": {"uuid": "clos3-fabric"}}, "topology_uuid": {"uuid": "clos3-fabric-topo"}}, "device_id": {"device_uuid": {"uuid": "leaf2"}}, "endpoint_uuid": {"uuid": "Ethernet2"}},
+                {"topology_id": {"context_id": {"context_uuid": {"uuid": "clos3-fabric"}}, "topology_uuid": {"uuid": "clos3-fabric-topo"}}, "device_id": {"device_uuid": {"uuid": "client2"}}, "endpoint_uuid": {"uuid": "eth1"}}
+            ]
+        },
+        {
+            "link_id": {"link_uuid": {"uuid": "client2/eth1==leaf2/Ethernet2"}},
+            "link_endpoint_ids": [
+                {"topology_id": {"context_id": {"context_uuid": {"uuid": "clos3-fabric"}}, "topology_uuid": {"uuid": "clos3-fabric-topo"}}, "device_id": {"device_uuid": {"uuid": "client2"}}, "endpoint_uuid": {"uuid": "eth1"}},
+                {"topology_id": {"context_id": {"context_uuid": {"uuid": "clos3-fabric"}}, "topology_uuid": {"uuid": "clos3-fabric-topo"}}, "device_id": {"device_uuid": {"uuid": "leaf2"}}, "endpoint_uuid": {"uuid": "Ethernet2"}}
+            ]
+        }
+    ]
+}

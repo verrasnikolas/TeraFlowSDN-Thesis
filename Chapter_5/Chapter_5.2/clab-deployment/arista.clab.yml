@@ -1,0 +1,25 @@
+name: arista-demo
+
+topology:
+  kinds:
+    ceos:
+      image: ceos:4.31.5M
+    linux:
+      image: ghcr.io/hellt/network-multitool:latest
+  nodes:
+    router1:
+      kind: ceos
+      mgmt-ipv4: 172.20.20.2
+    router2:
+      kind: ceos
+      mgmt-ipv4: 172.20.20.3
+    dc1:
+      kind: linux
+      mgmt-ipv4: 172.20.20.201
+    dc2:
+      kind: linux
+      mgmt-ipv4: 172.20.20.202
+  links:
+    - endpoints: ["router1:eth1", "router2:eth1"]
+    - endpoints: ["router1:eth10", "dc1:eth1"] # Σύνδεση R1 με DC1
+    - endpoints: ["router2:eth10", "dc2:eth1"] # Σύνδεση r2 με dc1
