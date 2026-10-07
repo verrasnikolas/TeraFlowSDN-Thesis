@@ -15,3 +15,6 @@
 
 ```bash
 export TFS_COMPONENTS="context device service pathcomp nbi webui slice"
+
+Για τις πλήρεις οδηγίες εγκατάστασης του TeraFlowSDN συνιστάται η ακολούθηση του [επίσημου οδηγού εγκατάστασης](https://tfs.etsi.org/documentation/develop/deployment_guide/)
+
