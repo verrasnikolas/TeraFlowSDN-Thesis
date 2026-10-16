@@ -1,50 +1,50 @@
-# Κεφάλαιο 5: Σχεδίαση και Εξομοίωση Τοπολογιών
+# Chapter 5: Network Topology Design & Emulation
 
-Στον συγκεκριμένο κατάλογο περιλαμβάνονται τα αρχεία διαμόρφωσης, οι τοπολογίες Containerlab (`clab`) και τα σενάρια αυτοματοποίησης που αναπτύχθηκαν για την πειραματική αξιολόγηση του ελεγκτή TeraFlowSDN (TFS) στο **Κεφάλαιο 5** της διπλωματικής εργασίας.
+This directory contains the configuration files, Containerlab (`clab`) network topologies, and automation scripts developed for the experimental evaluation of the TeraFlowSDN (TFS) controller in **Chapter 5** of the diploma thesis.
 
 ---
 
-## Δομή & Υποενότητες
+## Structure & Subsections
 
-### 1. Ενότητα 5.2 (`Chapter_5.2/`)
-Πειραματική διάταξη βασισμένη στο επίσημο Hackfest#5 του ETSI TFS Group, με εικονικούς δρομολογητές Arista cEOS και βασική υπηρεσία L3VPN.
-* `clab-deployment/arista.clab.yml`: Περιγραφή τοπολογίας δικτύου για το Containerlab.
-* `JSONs/`: Αρχεία ορισμού συσκευών, ζεύξεων (`hackfest-routers-links.json`) και παραμετροποίησης υπηρεσίας L3VPN (`l3vpn-hackfest.json`) προς εισαγωγή στον TFS.
+### 1. Section 5.2 (`Chapter_5.2/`)
+Experimental setup based on the official ETSI TFS Group Hackfest#5, featuring Arista cEOS virtual routers and basic L3VPN service provisioning.
+* `clab-deployment/arista.clab.yml`: Network topology descriptor for Containerlab.
+* `JSONs/`: Device and link descriptors (`hackfest-routers-links.json`) and L3VPN service configuration files (`l3vpn-hackfest.json`) for onboarding into TFS.
 
-### 2. Ενότητα 5.3 (`Chapter_5.3/`)
-Υλοποίηση αρχιτεκτονικής κέντρου δεδομένων υποδομής 3-Node Clos  (Spine-Leaf) με VXLAN/EVPN.
-* `clab-deployment/3nodeclos.clab.yml`: Τοπολογία Containerlab για το δίκτυο 3 κόμβων.
-* `JSONs/`: Αρχεία εισαγωγής συσκευών (`3clos-onboarding.json`), συνδέσμων (`links.json`) και υπηρεσιών VXLAN (`3-node-clos-VXLAN.json`).
-* `automation-scripts/`: Σενάρια Python για την αυτοματοποιημένη παραμετροποίηση:
-  * `is-is.py`: Ρύθμιση Underlay δρομολόγησης (IS-IS).
-  * `3-node-clos-BGP.py`: Παραμετροποίηση BGP EVPN Overlay.
-  * `ip-registration-script.py`: Απόδοση IP διευθύνσεων διεπαφών.
-  * `create_telemetry_subs.py`: Δημιουργία συνδρομών τηλεμετρίας για παρακολούθηση.
+### 2. Section 5.3 (`Chapter_5.3/`)
+Implementation of a 3-Node Clos (Spine-Leaf) datacenter fabric with VXLAN/EVPN.
+* `clab-deployment/3nodeclos.clab.yml`: Containerlab topology descriptor for the 3-node network.
+* `JSONs/`: Device onboarding (`3clos-onboarding.json`), link definitions (`links.json`), and VXLAN service descriptors (`3-node-clos-VXLAN.json`).
+* `automation-scripts/`: Python scripts for automated network configuration:
+  * `is-is.py`: Underlay routing configuration using IS-IS.
+  * `3-node-clos-BGP.py`: BGP EVPN Overlay configuration.
+  * `ip-registration-script.py`: Interface IP address assignment.
+  * `create_telemetry_subs.py`: Creation of telemetry subscriptions for network monitoring.
 
-### 3. Ενότητα 5.4 (`Chapter_5.4/`)
-Κλιμάκωση σε σύνθετη αρχιτεκτονική Clos 5 σταδίων (υποδομή 5-Stage Clos).
-* `clab-deployment/5stageclos.clab.yml`: Πλήρης τοπολογία Containerlab για το δίκτυο 5-Stage Clos.
+### 3. Section 5.4 (`Chapter_5.4/`)
+Scaling to a complex 5-Stage Clos datacenter fabric architecture.
+* `clab-deployment/5stageclos.clab.yml`: Full Containerlab topology descriptor for the 5-Stage Clos network.
 * `JSONs/`:
-  * `5-stage-onboarding.json`: Εισαγωγή και καταχώριση των συσκευών στον ελεγκτή TFS.
-  * `link-creation.json`: Δημιουργία και ορισμός των φυσικών/λογικών ζεύξεων μεταξύ των κόμβων.
-  * `VXLAN.json`: Παραμετροποίηση υπηρεσιών Overlay (VXLAN/EVPN).
+  * `5-stage-onboarding.json`: Device onboarding and registration into the TFS controller.
+  * `link-creation.json`: Creation and definition of physical and logical links between nodes.
+  * `VXLAN.json`: Overlay service provisioning (VXLAN/EVPN).
 * `automation-scripts/`:
-  * `is-is.py`: Αυτοματοποιημένη παραμετροποίηση Underlay δρομολόγησης (IS-IS).
-  * `BGP.py`: Αυτοματοποιημένη ρύθμιση BGP EVPN Overlay.
-  * `ip-registration.py`: Μαζική απόδοση και καταχώριση διευθύνσεων IP στις διεπαφές.
+  * `is-is.py`: Automated Underlay routing configuration (IS-IS).
+  * `BGP.py`: Automated BGP EVPN Overlay configuration.
+  * `ip-registration.py`: Bulk IP address assignment to network interfaces.
 
 ---
 
-## Γενικές Οδηγίες Εκτέλεσης
+## Execution Guidelines
 
-### Εκκίνηση Τοπολογίας (Containerlab)
-Μέσα στον υποφάκελο `clab-deployment/` της εκάστοτε ενότητας:
+### Launching Topologies (Containerlab)
+From within the `clab-deployment/` subdirectory of the respective section:
 ```bash
-sudo containerlab deploy -t <όνομα_αρχείου>.clab.yml
+sudo containerlab deploy -t <filename>.clab.yml
 ```
 
-### Εκτέλεση Σεναρίων Αυτοματοποίησης
-Μέσα στον υποφάκελο `automation-scripts`
+### Running Automation Scripts
+From within the automation-scripts/ subdirectory of the respective section
 ```bash
-python3 <όνομα_script>.py
+python3 <script_name>.py
 ```
