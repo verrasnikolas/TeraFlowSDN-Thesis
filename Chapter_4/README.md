@@ -1,26 +1,34 @@
-# Κεφάλαιο 4: Ανάπτυξη Εργαλείου Επικύρωσης Τοπολογίας
+# Chapter 4: Topology Validation Tool Development
 
-Στον συγκεκριμένο κατάλογο περιλαμβάνεται ο πηγαίος κώδικας και τα σενάρια ελέγχου για το **Εργαλείο Επαλήθευσης (Validation Tool)** που αναπτύχθηκε στο πλαίσιο του **Κεφαλαίου 4** της διπλωματικής εργασίας.
+This directory contains the source code and test suites for the **Validation Tool (`valtool`)** developed as part of **Chapter 4** of the diploma thesis.
 
-Το εργαλείο αναλαμβάνει τον προκαταρκτικό έλεγχο συνέπειας, μορφοποίησης και σημασιολογικής ορθότητας περιγραφέων δικτυακής τοπολογίας (π.χ. έλεγχος διευθύνσεων MAC, συγκρούσεων θυρών / διένεξη ζεύξεων, εντοπισμός ορφανών οντοτήτων κ.ά.) πριν την εισαγωγή τους στον ελεγκτή TeraFlowSDN.
-
----
-
-## Περιεχόμενα Καταλόγου
-
-* `validation1.py`: Το κύριο εκτελέσιμο σενάριο Python του εργαλείου επικύρωσης.
-* `topology_schema.json`: Το JSON Schema που ορίζει τους κανόνες επικύρωσης και τη δομή των αρχείων τοπολογίας.
-* `tfs_grpc/`: Κατάλογος με τους μεταγλωττισμένους gRPC stubs/πελάτες για την επικοινωνία με τις υπηρεσίες του TeraFlowSDN.
-* `test_*.json` & `MACTest.json`: Σύνολο δοκιμαστικών αρχείων εισόδου (test cases) για την αξιολόγηση και επικύρωση του εργαλείου υπό διάφορες συνθήκες σφαλμάτων (π.χ. ghost ports, port collisions, ακραίες περιπτώσεις σύνδεσης).
+The tool performs pre-deployment validation, format verification, and semantic consistency checks on network topology descriptors (e.g., MAC address verification, port collision/link conflict detection, identification of orphan/ghost entities, etc.) prior to onboarding onto the TeraFlowSDN (TFS) controller.
 
 ---
 
-## Προαπαιτούμενα
+## Directory Contents
 
-Συνιστάται η χρήση εικονικού περιβάλλοντος Python (virtual environment):
+* `validation1.py`: The main Python executable script of the validation tool.
+* `topology_schema.json`: The JSON Schema specifying data formats, structural rules, and constraints for topology descriptors.
+* `tfs_grpc/`: Directory containing pre-compiled gRPC stubs/clients for communication with TeraFlowSDN microservices.
+* `test_*.json` & `MACTest.json`: Comprehensive test cases used to evaluate and benchmark the validation engine across edge cases and intentional error conditions (e.g., ghost ports, port collisions, structural anomalies).
+
+---
+
+## Prerequisites
+
+The use of an isolated Python virtual environment is recommended:
 
 ```bash
 python3 -m venv .venv
 source .venv/bin/activate
 pip install jsonschema grpcio grpcio-tools
+```
+
+## Usage
+
+To execute the validation engine against a target topology descriptor:
+
+```bash
+python3 validation1.py <topology_file>.json
 ```
