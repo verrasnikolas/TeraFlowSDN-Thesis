@@ -11,7 +11,7 @@ The tool performs pre-deployment validation, format verification, and semantic c
 * `validation1.py`: The main Python executable script of the validation tool.
 * `topology_schema.json`: The JSON Schema specifying data formats, structural rules, and constraints for topology descriptors.
 * `tfs_grpc/`: Directory containing pre-compiled gRPC stubs/clients for communication with TeraFlowSDN microservices.
-* `test_*.json` & `MACTest.json`: Comprehensive test cases used to evaluate and benchmark the validation engine across edge cases and intentional error conditions (e.g., ghost ports, port collisions, structural anomalies).
+* `test_files`: Comprehensive test cases used to evaluate and benchmark the validation engine across edge cases and intentional error conditions (e.g., ghost ports, port collisions, structural anomalies).
 
 ---
 
